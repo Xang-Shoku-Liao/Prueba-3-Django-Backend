@@ -53,7 +53,8 @@
 
         </div>
     </div>
-</section>  
+</section>
+
 <body class="">
     <nav>
         <div class="nav-logo">
@@ -77,20 +78,25 @@
             <span class="blur"></span>
             <h1>Todos los productos</h1>
             <div class="shopping">
-                <img src="{% static 'image/shopping.svg' %}">  
+                <img src="{% static 'image/shopping.svg' %}">
                 <span class="quantity">0</span>
             </div>
         </header>
-       
-        {% for x in objplant %}
-        <div class="productos">
-            <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
-            <div class="producto-detalles">
-                <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
-                <p class="producto-precio">{{ x.precio }}</p>
+
+
+        <div class="product-list">
+            {% for x in objplant %}
+            <div class="productos">
+                <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
+                <div class="producto-detalles">
+                    <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
+                    <p class="producto-precio">{{ x.precio }}</p>
+                    <button class="addtocart" onclick="">Add To Card</button>
+                </div>
             </div>
-        </div>
-    {% endfor %} 
+        
+        {% endfor %}
+    </div>
     </div>
     <div class="card">
         <h1>Tu carrito</h1>
