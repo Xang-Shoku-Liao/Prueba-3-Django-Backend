@@ -117,3 +117,12 @@ def clientes_findEdit(request, pk):
         else:
             context = {"mensaje": "Cliente no encontrado"}
             return render(request, 'Atienda/clientes_edit.html', context)
+        
+def main(request):
+    return render(request, 'Atienda/main.html')
+
+def contacto(request):
+     return render(request, 'Atienda/contacto.html')
+
+def productos(request):
+    return render(request, 'Atienda/productos.html')
