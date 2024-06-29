@@ -9,5 +9,7 @@ urlpatterns = [
     path('clientes_findEdit/<str:pk>/', views.clientes_findEdit, name='clientes_findEdit'),
     path('main/', views.main, name='main'),
     path('contacto/', views.contacto, name='contacto'),
-    path('productos/', views.productos, name='productos'),
+    path('productos/', views.productos, name='productos'),  
 ]
+
+

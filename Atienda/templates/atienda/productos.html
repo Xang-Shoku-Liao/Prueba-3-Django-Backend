@@ -81,10 +81,16 @@
                 <span class="quantity">0</span>
             </div>
         </header>
-
-        <div class="list">
-
+       
+        {% for x in objplant %}
+        <div class="productos">
+            <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
+            <div class="producto-detalles">
+                <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
+                <p class="producto-precio">{{ x.precio }}</p>
+            </div>
         </div>
+    {% endfor %} 
     </div>
     <div class="card">
         <h1>Tu carrito</h1>
