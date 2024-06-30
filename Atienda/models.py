@@ -30,3 +30,5 @@ class TipoProducto(models.Model):
 
     def str(self):
         return self.nombre_tipo
+    
+

@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .models import Cliente
-from .models import Productos
+from .models import Cliente, Productos
 
 def index(request):
     clientes = Cliente.objects.all()  # Cambia el nombre de la variable
@@ -129,4 +128,4 @@ def productos(request):
     objplant = Productos.objects.filter(id_tipo=1)
     context = {'objplant' : objplant}
     return render(request, 'Atienda/productos.html', context)
-    
+
