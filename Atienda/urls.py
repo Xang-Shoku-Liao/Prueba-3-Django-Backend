@@ -7,4 +7,10 @@ urlpatterns = [
     path('clientesAdd/', views.ClientesAdd, name='clientesAdd'),  # Ajuste aquí
     path('listadoSQL/', views.listadoSQL, name='listadoSQL'),
     path('clientes_findEdit/<str:pk>/', views.clientes_findEdit, name='clientes_findEdit'),
+    path('main/', views.main, name='main'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('productos/', views.productos, name='productos'),  
+
 ]
+
+
