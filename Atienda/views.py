@@ -129,3 +129,6 @@ def productos(request):
     context = {'objplant' : objplant}
     return render(request, 'Atienda/productos.html', context)
 
+def main_view(request):
+    return render(request, 'Atienda/productos.html')
+

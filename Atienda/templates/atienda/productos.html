@@ -91,7 +91,7 @@
                 <div class="producto-detalles">
                     <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
                     <p class="producto-precio">{{ x.precio }}</p>
-                    <button class="addtocart" data-precio="{{ x.precio }}" onclick="">Add To Card</button>
+                    <button class="addtocart" data-img="{{ x.foto.url }}" data-price="{{ x.precio }}"onclick="addToCart(this)">Add to Cart</button>
                 </div>
             </div>        
      
@@ -101,6 +101,7 @@
     <div class="card">
         <h1>Tu carrito</h1>
         <ul class="listCard">
+            
         </ul>
         <div class="checkOut">
             <div class="total">0</div>
@@ -108,6 +109,8 @@
         </div>
     </div>
 </body>
+
+
 <footer class="container">
     <span class="blur"></span>
     <span class="blur"></span>
@@ -166,43 +169,82 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-    // Select the container that holds your products
+
     const productList = document.querySelector('.product-list');
 
-    // Select the quantity span
+    
     const quantitySpan = document.querySelector('.quantity');
 
-    // Add click event listener to the product list container
     productList.addEventListener('click', function(event) {
-        // Check if the clicked element is an addtocart button
+   
         if (event.target.classList.contains('addtocart')) {
-            // Increment the quantity by 1
+            
             let currentQuantity = parseInt(quantitySpan.textContent);
             quantitySpan.textContent = currentQuantity + 1;
         }
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const productList = document.querySelector('.product-list');
-    const totalDiv = document.querySelector('.total');
 
-    productList.addEventListener('click', function(event) {
-        if (event.target.classList.contains('addtocart')) {
-            // Retrieve the price from the data-precio attribute
-            let productPrice = parseFloat(event.target.dataset.precio);
+function addToCart(button) {
+    var imgSrc = button.getAttribute('data-img');
+    var price = parseFloat(button.getAttribute('data-price'));
 
-            // Check if productPrice is NaN. If so, default to 0.
-            productPrice = isNaN(productPrice) ? 0 : productPrice;
+    var img = document.createElement('img');
+    img.src = imgSrc;
 
-            // Update the total
-            let currentTotal = parseFloat(totalDiv.textContent);
-            currentTotal = isNaN(currentTotal) ? 0 : currentTotal;
-            totalDiv.textContent = (currentTotal + productPrice).toFixed(2);
-        }
-    });
-});
+    var li = document.createElement('li');
+    li.appendChild(img);
 
+    // Create Remove Button
+    var removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = function() {
+        removePlant(li, price);
+    };
+
+    // Create Add One More Button
+    var addOneMoreBtn = document.createElement('button');
+    addOneMoreBtn.textContent = 'Add One More';
+    addOneMoreBtn.onclick = function() {
+        addOneMorePlant(imgSrc, price);
+    };
+
+    // Append buttons to the list item
+    li.appendChild(removeBtn);
+    li.appendChild(addOneMoreBtn);
+
+    document.querySelector('.listCard').appendChild(li);
+
+    updateTotal(price); // Update total
+}
+
+function updateTotal(price) {
+    var totalDiv = document.querySelector('.total');
+    var currentTotal = parseFloat(totalDiv.textContent);
+    var newTotal = currentTotal + price;
+    totalDiv.textContent = newTotal.toFixed(2);
+}
+
+function removePlant(li, price) {
+    li.remove(); // Remove the list item
+    updateTotal(-price); // Subtract the price from the total
+}
+
+function addOneMorePlant(imgSrc, price) {
+    var img = document.createElement('img');
+    img.src = imgSrc;
+
+    var li = document.createElement('li');
+    li.appendChild(img);
+
+    // Ideally, you should also clone the buttons here, but for simplicity:
+    // Just call addToCart with a dummy button object containing the necessary attributes
+    addToCart({getAttribute: function(attr) {
+        if(attr === 'data-img') return imgSrc;
+        if(attr === 'data-price') return price.toString();
+    }});
+}
 </script>
 </body>
 
