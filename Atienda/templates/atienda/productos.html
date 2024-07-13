@@ -196,27 +196,53 @@ function addToCart(button) {
     var li = document.createElement('li');
     li.appendChild(img);
 
-    // Create Remove Button
+    function addOneMorePlant(imgSrc, price) {
+    var img = document.createElement('img');
+    img.src = imgSrc;
+
+    var li = document.createElement('li');
+    li.appendChild(img);
+
+    addToCart({getAttribute: function(attr) {
+        if(attr === 'data-img') return imgSrc;
+        if(attr === 'data-price') return price.toString();
+    }});
+
+    updateQuantity(1); 
+}
+
+
     var removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
+    removeBtn.className = 'buttonmylist';
     removeBtn.onclick = function() {
         removePlant(li, price);
+        updateQuantity(-1);
     };
 
-    // Create Add One More Button
+    function updateQuantity(amount) {
+    var quantitySpan = document.querySelector('.quantity');
+    var currentQuantity = parseInt(quantitySpan.textContent, 10);
+    var newQuantity = currentQuantity + amount;
+    if (newQuantity >= 0) { 
+        quantitySpan.textContent = newQuantity;
+    }
+}
+
     var addOneMoreBtn = document.createElement('button');
     addOneMoreBtn.textContent = 'Add One More';
+    addOneMoreBtn.className = 'buttonmylist';
     addOneMoreBtn.onclick = function() {
         addOneMorePlant(imgSrc, price);
+        
     };
-
-    // Append buttons to the list item
+ 
     li.appendChild(removeBtn);
     li.appendChild(addOneMoreBtn);
 
     document.querySelector('.listCard').appendChild(li);
 
-    updateTotal(price); // Update total
+    updateTotal(price); 
 }
 
 function updateTotal(price) {
@@ -227,8 +253,8 @@ function updateTotal(price) {
 }
 
 function removePlant(li, price) {
-    li.remove(); // Remove the list item
-    updateTotal(-price); // Subtract the price from the total
+    li.remove(); 
+    updateTotal(-price); 
 }
 
 function addOneMorePlant(imgSrc, price) {
@@ -238,13 +264,14 @@ function addOneMorePlant(imgSrc, price) {
     var li = document.createElement('li');
     li.appendChild(img);
 
-    // Ideally, you should also clone the buttons here, but for simplicity:
-    // Just call addToCart with a dummy button object containing the necessary attributes
+ 
     addToCart({getAttribute: function(attr) {
         if(attr === 'data-img') return imgSrc;
         if(attr === 'data-price') return price.toString();
     }});
 }
+
+
 </script>
 </body>
 
