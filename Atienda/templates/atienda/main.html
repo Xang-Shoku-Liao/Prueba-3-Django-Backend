@@ -100,7 +100,7 @@
                     <p>
                         Maceteros de diversos tamaños y colores, ideales para cualquier tipo de planta.
                     </p>
-                    <a href="#">En Stock <i class="ri-arrow-right-line"></i></a>
+                    <a href="{% url 'productos' %}">En Stock <i class="ri-arrow-right-line"></i></a>
                 </div>
                 <div class="card">
                     <span><i class="ri-plant-line"></i></span>
@@ -108,7 +108,7 @@
                     <p>
                         Tierra de hojas en una variedad de cantidades, perfecta para todo tipo de plantas.
                     </p>
-                    <a href="#">En Stock <i class="ri-arrow-right-line"></i></a>
+                    <a href="{% url 'productos' %}">En Stock <i class="ri-arrow-right-line"></i></a>
                 </div>
                 <div class="card">
                     <span><i class="ri-tree-line"></i></span>
@@ -125,7 +125,7 @@
                         Decoraciones de jardines de todos los estilos, ideales para crear espacios únicos y
                         encantadores.
                     </p>
-                    <a href="#">En Stock <i class="ri-arrow-right-line"></i></a>
+                    <a href="{% url 'productos' %}">En Stock <i class="ri-arrow-right-line"></i></a>
                 </div>
             </div>
         </section>
@@ -247,6 +247,7 @@
     document.getElementById("closeBtn").addEventListener("click", function () {
         document.querySelector(".loginPopup").style.display = "none";
     });
+
 
 
 </script>
