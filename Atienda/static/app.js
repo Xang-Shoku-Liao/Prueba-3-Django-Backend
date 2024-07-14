@@ -23,7 +23,7 @@ closeShopping.addEventListener('click', ()=>{
     });
     document.addEventListener('DOMContentLoaded', function() {
         // Select both containers
-        const productLists = document.querySelectorAll('.product-list, .product-list2');
+        const productLists = document.querySelectorAll('.product-list, .product-list2, .product-list3');
         const quantitySpan = document.querySelector('.quantity');
     
         // Iterate over both containers to add the event listener to each
@@ -148,13 +148,31 @@ document.querySelectorAll('button.e').forEach(function(button) {
             var productList = document.querySelector('.product-list');
             var productList2 = document.querySelector('.product-list2');
 
-            // Set .product-list to display: none
+
             productList.style.display = 'none';
 
-            // Set .product-list2 to display: grid
             productList2.style.display = 'grid';
         });
     }
 });
+
+document.querySelectorAll('button.e').forEach(function(button) {
+    if (button.textContent.trim() === 'Tierra de Hojas') {
+        button.addEventListener('click', function() {
+            var productList = document.querySelector('.product-list');
+            var productList2 = document.querySelector('.product-list2');
+            var productList3 = document.querySelector('.product-list3');
+            
+
+            productList.style.display = 'none';
+            productList2.style.display = 'none';
+
+
+            productList3.style.display = 'grid';
+        });
+    }
+});
+
+
 
 
