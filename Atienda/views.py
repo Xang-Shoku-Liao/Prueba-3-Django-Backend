@@ -128,7 +128,8 @@ def productos(request):
     objplant = Productos.objects.filter(id_tipo=1)
     macetero = Productos.objects.filter(id_tipo=2)
     tierra = Productos.objects.filter(id_tipo=3)
-    context = {'objplant' : objplant, 'macetero' : macetero, 'tierra' : tierra}
+    decoraciones = Productos.objects.filter(id_tipo=4)
+    context = {'objplant' : objplant, 'macetero' : macetero, 'tierra' : tierra, 'decoraciones' : decoraciones}
     return render(request, 'Atienda/productos.html', context)
 
 

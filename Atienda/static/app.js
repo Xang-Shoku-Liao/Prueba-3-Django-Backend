@@ -23,7 +23,7 @@ closeShopping.addEventListener('click', ()=>{
     });
     document.addEventListener('DOMContentLoaded', function() {
         // Select both containers
-        const productLists = document.querySelectorAll('.product-list, .product-list2, .product-list3');
+        const productLists = document.querySelectorAll('.product-list, .product-list2, .product-list3, .product-list4');
         const quantitySpan = document.querySelector('.quantity');
     
         // Iterate over both containers to add the event listener to each
@@ -138,13 +138,16 @@ document.querySelectorAll('button.e').forEach(function(button) {
             var productList = document.querySelector('.product-list');
             var productList2 = document.querySelector('.product-list2');
             var productList3 = document.querySelector('.product-list3');
+            var productList4 = document.querySelector('.product-list4');
 
 
             productList.style.display = 'grid';
 
             productList2.style.display = 'none';
 
-            productList2.style.display = 'none';
+            productList3.style.display = 'none';
+
+            productList4.style.display = 'none';
         });
     }
 });
@@ -154,6 +157,7 @@ document.querySelectorAll('button.e').forEach(function(button) {
             var productList = document.querySelector('.product-list');
             var productList2 = document.querySelector('.product-list2');
             var productList3 = document.querySelector('.product-list3');
+            var productList4 = document.querySelector('.product-list4');
 
 
             productList.style.display = 'none';
@@ -161,6 +165,8 @@ document.querySelectorAll('button.e').forEach(function(button) {
             productList2.style.display = 'grid';
 
             productList3.style.display = 'none';
+
+            productList4.style.display = 'none';
         });
     }
 });
@@ -170,6 +176,7 @@ document.querySelectorAll('button.e').forEach(function(button) {
             var productList = document.querySelector('.product-list');
             var productList2 = document.querySelector('.product-list2');
             var productList3 = document.querySelector('.product-list3');
+            var productList4 = document.querySelector('.product-list4');
             
 
             productList.style.display = 'none';
@@ -177,6 +184,26 @@ document.querySelectorAll('button.e').forEach(function(button) {
 
 
             productList3.style.display = 'grid';
+            productList4.style.display = 'none';
+        });
+    }
+});
+
+document.querySelectorAll('button.e').forEach(function(button) {
+    if (button.textContent.trim() === 'Decoraciones') {
+        button.addEventListener('click', function() {
+            var productList = document.querySelector('.product-list');
+            var productList2 = document.querySelector('.product-list2');
+            var productList3 = document.querySelector('.product-list3');
+            var productList4 = document.querySelector('.product-list4');
+            
+
+            productList.style.display = 'none';
+            productList2.style.display = 'none';
+
+
+            productList3.style.display = 'none';
+            productList4.style.display = 'grid';
         });
     }
 });
