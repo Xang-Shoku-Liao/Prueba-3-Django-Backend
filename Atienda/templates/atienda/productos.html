@@ -120,6 +120,22 @@
             {% endfor %}
         </div>
 
+        <div class="product-list3">
+            {% for x in tierra %}
+            <div class="productos">
+                <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
+                <div class="producto-detalles">
+                    <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
+                    <p class="producto-precio">{{ x.precio }}</p>
+                    <button class="addtocart" data-name="{{ x.nombre_producto }}" data-img="{{ x.foto.url }}"
+                        data-price="{{ x.precio }}" onclick="addToCart(this)">Add to Cart</button>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+
 
     </div>
     </div>
