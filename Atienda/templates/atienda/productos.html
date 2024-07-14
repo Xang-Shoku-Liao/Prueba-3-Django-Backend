@@ -76,16 +76,12 @@
         <header>
             <span class="blur"></span>
             <span class="blur"></span>
-<<<<<<< HEAD
-            <h1>Todos los productos <button id="toggleVisibility">Hide Products</button></h1>
-=======
             <h1>Todos los productos</h1>
                 
             
             <button class="e">Plantas</button>
             <button class="e">Maceteros</button>
             <button class="e">Tierra de Hojas</button>
->>>>>>> test2
             <div class="shopping">
                 <img src="{% static 'image/shopping.svg' %}">
                 <span class="quantity">0</span>
@@ -108,14 +104,8 @@
 
             {% endfor %}
         </div>
-<<<<<<< HEAD
-  
-
-        <div class="product-list">
-=======
 
         <div class="product-list2">
->>>>>>> test2
             {% for x in macetero %}
             <div class="productos">
                 <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
@@ -129,11 +119,8 @@
 
             {% endfor %}
         </div>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> test2
     </div>
     </div>
     <div class="card">
@@ -196,132 +183,6 @@
     var imagePath = "{% static 'images/' %}";
 </script>
 
-<<<<<<< HEAD
-    document.getElementById("closeBtn").addEventListener("click", function () {
-        document.querySelector(".loginPopup").style.display = "none";
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-        const productList = document.querySelector('.product-list');
-
-
-        const quantitySpan = document.querySelector('.quantity');
-
-        productList.addEventListener('click', function (event) {
-
-            if (event.target.classList.contains('addtocart')) {
-
-                let currentQuantity = parseInt(quantitySpan.textContent);
-                quantitySpan.textContent = currentQuantity + 1;
-            }
-        });
-    });
-
-
-    function addToCart(button) {
-        var imgSrc = button.getAttribute('data-img');
-        var price = parseInt(button.getAttribute('data-price'));
-        var productName = button.getAttribute('data-name');
-
-        var img = document.createElement('img');
-        img.src = imgSrc;
-
-        var li = document.createElement('li');
-
-        var li = document.createElement('li');
-        li.appendChild(img);
-
-        var nameSpan = document.createElement('span');
-        nameSpan.textContent = productName;
-        li.appendChild(nameSpan);
-
-        function addOneMorePlant(imgSrc, price) {
-            var img = document.createElement('img');
-            img.src = imgSrc;
-
-            var li = document.createElement('li');
-            li.appendChild(img);
-
-            addToCart({
-                getAttribute: function (attr) {
-                    if (attr === 'data-img') return imgSrc;
-                    if (attr === 'data-price') return parseInt(price).toString();
-                    if (attr === 'data-name') return productName;
-                }
-            });
-
-            updateQuantity(1);
-        }
-
-
-        var removeBtn = document.createElement('button');
-        removeBtn.textContent = '-';
-        removeBtn.className = 'buttonmylist';
-        removeBtn.onclick = function () {
-            removePlant(li, parseInt(price));
-            updateQuantity(-1);
-        };
-
-        function updateQuantity(amount) {
-            var quantitySpan = document.querySelector('.quantity');
-            var currentQuantity = parseInt(quantitySpan.textContent, 10);
-            var newQuantity = currentQuantity + amount;
-            if (newQuantity >= 0) {
-                quantitySpan.textContent = newQuantity;
-            }
-        }
-
-        var addOneMoreBtn = document.createElement('button');
-        addOneMoreBtn.textContent = '+';
-        addOneMoreBtn.className = 'buttonmylist';
-        addOneMoreBtn.onclick = function () {
-            addOneMorePlant(imgSrc, parseInt(price), productName);
-
-        };
-
-        li.appendChild(removeBtn);
-        li.appendChild(addOneMoreBtn);
-        li.appendChild(addOneMoreBtn);
-
-        document.querySelector('.listCard').appendChild(li);
-
-        updateTotal(parseInt(price));
-    }
-
-    function updateTotal(price) {
-        var totalDiv = document.querySelector('.total');
-        var currentTotal = parseInt(totalDiv.textContent);
-        var newTotal = currentTotal + parseInt(price);
-        totalDiv.textContent = newTotal.toFixed(2);
-    }
-
-    function removePlant(li, price) {
-        li.remove();
-        updateTotal(-parseInt(price));
-    }
-
-    function addOneMorePlant(imgSrc, price, productName) {
-        var img = document.createElement('img');
-        img.src = imgSrc;
-
-        var li = document.createElement('li');
-        li.appendChild(img);
-
-
-        addToCart({
-            getAttribute: function (attr) {
-                if (attr === 'data-img') return imgSrc;
-                if (attr === 'data-price') parseInt(price).toString();
-                if (attr === 'data-name') return productName;
-            }
-        });
-    }
-
-
-</script>
-=======
->>>>>>> test2
 </body>
 
 </html>
