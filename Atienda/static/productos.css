@@ -165,11 +165,14 @@ header .shopping span{
     color: #fff;
 }
 .listCard{
+    scrollbar-gutter: stable;
+    margin: 10px;
 max-height: 800px;
 overflow-y: auto;
 }
 
 .listCard li{
+    background-color: #5e5450;
     overflow-y: auto;
     align-items: center;
     margin: 5px 0;
