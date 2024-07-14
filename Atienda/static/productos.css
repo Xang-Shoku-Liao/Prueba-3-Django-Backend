@@ -402,7 +402,7 @@ overflow-y: auto;
 }
 
 .product-list3{
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
     row-gap: 20px;
@@ -410,15 +410,6 @@ overflow-y: auto;
 
 }
 
-
-.product-list2{
-        overflow-y: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 20px;
-        row-gap: 20px;
-        margin-top: 50px;
-    } 
 
 .productos{
     text-align: center;
@@ -476,19 +467,19 @@ overflow-y: auto;
 }
 
 header {
-    display: flex; /* Apply Flexbox layout */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: space-between; /* Distribute space between items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
 }
 
 header .e {
-    margin: 0 10px; /* Add some horizontal spacing between buttons */
+    margin: 0 10px; 
 }
 
 header .shopping {
-    display: flex; /* Ensure the shopping div also uses Flexbox for its children */
-    align-items: center; /* Align the image and quantity span vertically */
+    display: flex; 
+    align-items: center; 
 }
 
 /* Optional: Adjust the spacing and alignment as needed */

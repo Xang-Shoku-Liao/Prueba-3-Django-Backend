@@ -132,14 +132,20 @@ function addOneMorePlant(imgSrc, price, productName) {
     }});
 }
 
-document.querySelector('button.e').addEventListener('click', function() {
-    var productList = document.querySelector('.product-list');
+document.querySelectorAll('button.e').forEach(function(button) {
+    if (button.textContent.trim() === 'Plantas') {
+        button.addEventListener('click', function() {
+            var productList = document.querySelector('.product-list');
+            var productList2 = document.querySelector('.product-list2');
+            var productList3 = document.querySelector('.product-list3');
 
-    // Toggle display style upon button click
-    if (productList.style.display === 'none' || productList.style.display === '') {
-        productList.style.display = 'grid';
-    } else {
-        productList.style.display = 'grid';
+
+            productList.style.display = 'grid';
+
+            productList2.style.display = 'none';
+
+            productList2.style.display = 'none';
+        });
     }
 });
 document.querySelectorAll('button.e').forEach(function(button) {
@@ -147,15 +153,17 @@ document.querySelectorAll('button.e').forEach(function(button) {
         button.addEventListener('click', function() {
             var productList = document.querySelector('.product-list');
             var productList2 = document.querySelector('.product-list2');
+            var productList3 = document.querySelector('.product-list3');
 
 
             productList.style.display = 'none';
 
             productList2.style.display = 'grid';
+
+            productList3.style.display = 'none';
         });
     }
 });
-
 document.querySelectorAll('button.e').forEach(function(button) {
     if (button.textContent.trim() === 'Tierra de Hojas') {
         button.addEventListener('click', function() {
