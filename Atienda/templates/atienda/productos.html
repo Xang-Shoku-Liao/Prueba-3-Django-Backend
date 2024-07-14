@@ -76,11 +76,21 @@
         <header>
             <span class="blur"></span>
             <span class="blur"></span>
+<<<<<<< HEAD
             <h1>Todos los productos <button id="toggleVisibility">Hide Products</button></h1>
+=======
+            <h1>Todos los productos</h1>
+                
+            
+            <button class="e">Plantas</button>
+            <button class="e">Maceteros</button>
+            <button class="e">Tierra de Hojas</button>
+>>>>>>> test2
             <div class="shopping">
                 <img src="{% static 'image/shopping.svg' %}">
                 <span class="quantity">0</span>
             </div>
+         
         </header>
 
 
@@ -98,9 +108,14 @@
 
             {% endfor %}
         </div>
+<<<<<<< HEAD
   
 
         <div class="product-list">
+=======
+
+        <div class="product-list2">
+>>>>>>> test2
             {% for x in macetero %}
             <div class="productos">
                 <img class="producto-imagen" src="{{ x.foto.url }}" alt="{{ x.nombre }}">
@@ -114,6 +129,11 @@
 
             {% endfor %}
         </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> test2
     </div>
     </div>
     <div class="card">
@@ -175,13 +195,8 @@
 <script>
     var imagePath = "{% static 'images/' %}";
 </script>
-<script>
-    window.onload = function () {
-        document.querySelector(".Regbtn").addEventListener("click", function () {
-            document.querySelector(".loginPopup").style.display = "flex";
-        });
-    }
 
+<<<<<<< HEAD
     document.getElementById("closeBtn").addEventListener("click", function () {
         document.querySelector(".loginPopup").style.display = "none";
     });
@@ -305,6 +320,9 @@
 
 
 </script>
+=======
+>>>>>>> test2
 </body>
 
 </html>
+
