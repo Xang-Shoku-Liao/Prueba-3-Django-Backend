@@ -1,5 +1,7 @@
 from django.urls import path
+from Atienda.views import main
 from . import views
+
 
 urlpatterns = [
     path('index/', views.index, name='index'),
@@ -10,8 +12,9 @@ urlpatterns = [
     path('main/', views.main, name='main'),
     path('contacto/', views.contacto, name='contacto'),
     path('productos/', views.productos, name='productos'),  
-    path('main/', views.main_view, name='main'),
+    path('', main , name='main'),
     
+
 ]
 
 
