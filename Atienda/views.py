@@ -126,6 +126,10 @@ def contacto(request):
 
 def productos(request):
     objplant = Productos.objects.filter(id_tipo=1)
-    context = {'objplant' : objplant}
+    macetero = Productos.objects.filter(id_tipo=2)
+    context = {'objplant' : objplant, 'macetero' : macetero}
     return render(request, 'Atienda/productos.html', context)
+
+
+
 
