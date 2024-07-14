@@ -209,7 +209,7 @@ section .header{
 }
 
 .features .card a:hover{
-    color: #1eaf66;
+    color: #000000;
 }
 
 .sub-header{

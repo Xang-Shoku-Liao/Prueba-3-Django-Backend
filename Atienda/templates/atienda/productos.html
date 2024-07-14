@@ -91,7 +91,7 @@
                 <div class="producto-detalles">
                     <h4 class="producto-titulo">{{ x.nombre_producto }}</h4>
                     <p class="producto-precio">{{ x.precio }}</p>
-                    <button class="addtocart" data-img="{{ x.foto.url }}" data-price="{{ x.precio }}"onclick="addToCart(this)">Add to Cart</button>
+                    <button class="addtocart" data-name="{{ x.nombre_producto }}" data-img="{{ x.foto.url }}" data-price="{{ x.precio }}"onclick="addToCart(this)">Add to Cart</button>
                 </div>
             </div>        
      
@@ -189,12 +189,19 @@
 function addToCart(button) {
     var imgSrc = button.getAttribute('data-img');
     var price = parseFloat(button.getAttribute('data-price'));
+    var productName = button.getAttribute('data-name'); 
 
     var img = document.createElement('img');
     img.src = imgSrc;
 
     var li = document.createElement('li');
+
+    var li = document.createElement('li');
     li.appendChild(img);
+
+    var nameSpan = document.createElement('span');
+    nameSpan.textContent = productName; 
+    li.appendChild(nameSpan);
 
     function addOneMorePlant(imgSrc, price) {
     var img = document.createElement('img');
@@ -213,7 +220,7 @@ function addToCart(button) {
 
 
     var removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
+    removeBtn.textContent = '-';
     removeBtn.className = 'buttonmylist';
     removeBtn.onclick = function() {
         removePlant(li, price);
@@ -230,10 +237,10 @@ function addToCart(button) {
 }
 
     var addOneMoreBtn = document.createElement('button');
-    addOneMoreBtn.textContent = 'Add One More';
+    addOneMoreBtn.textContent = '+';
     addOneMoreBtn.className = 'buttonmylist';
     addOneMoreBtn.onclick = function() {
-        addOneMorePlant(imgSrc, price);
+        addOneMorePlant(imgSrc, price, productName);
         
     };
  
@@ -257,7 +264,7 @@ function removePlant(li, price) {
     updateTotal(-price); 
 }
 
-function addOneMorePlant(imgSrc, price) {
+function addOneMorePlant(imgSrc, price, productName) {
     var img = document.createElement('img');
     img.src = imgSrc;
 
